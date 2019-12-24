@@ -1,0 +1,57 @@
+.services
+  margin-bottom: 200px
+  &-wrapper
+    display: grid
+    grid-template-columns: repeat(auto-fill,minmax(330px,1fr))
+    grid-column-gap: 75px
+    grid-row-gap: 60px
+    margin-bottom: 100px
+    overflow: hidden
+    height: 700px
+    transition: all .2s linear
+    &.opened
+      height: 1400px
+      transition: all .2s linear
+
+
+  &-item
+    border-radius: 10px
+    box-shadow: 0 0 10px 0 rgba(23, 25, 28, 0.2)
+    img
+      border-top-right-radius: 10px
+      border-top-left-radius: 10px
+      margin-bottom: 30px
+      width: 100%
+    h4
+      font: 18px $f-TTB
+      text-align: center
+      margin-bottom: 20px
+    &-description
+      font-size: 14px
+      padding: 0 40px 30px 40px
+      border-bottom: 1px solid rgba(0, 0, 0, 0.11)
+      text-align: center
+      margin-bottom: 30px
+    &-price
+      font: 32px $f-TTB
+      color: $color-l-blue
+      text-align: center
+      margin-bottom: 30px
+      span
+        display: block
+        font: 16px $f-TTR
+        color: $color-text-m-grey
+        margin-top: 10px
+    &-more
+      font: 12px $f-TTM
+      text-transform: uppercase
+      color: #b6b6b6
+      text-decoration: underline
+      padding: 0 !important
+    a
+      display: block
+      max-width: 290px
+      margin: 0 auto
+      padding: 28px 0
+      margin-bottom: 30px
+

@@ -1,0 +1,39 @@
+.map
+  background: url(../img/map-bg.jpg)
+  height: 497px
+  &-inner
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    & .shadow-box
+      flex-basis: 33.33%
+      height: 70%
+    & .shadow-box-inner
+      padding: 20px
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: space-around
+    &-contact
+      p
+        font-family: $f-TTL
+        font-size: 24px
+        color: $color-text-d-grey
+      a
+        font-family: $f-TTR
+        color: $color-l-blue
+
+@media (max-width: 1024px)
+  .map
+     &-inner
+       & .shadow-box
+         min-width: 320px
+
+@media (max-width: 768px)
+  .map
+     &-inner
+       justify-content: center
+
+
+

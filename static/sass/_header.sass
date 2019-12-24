@@ -1,0 +1,204 @@
+.header
+  &.header-no-bg
+    padding: 20px
+    border-bottom: 1px solid $color-border
+    margin-bottom: 50px
+
+  &.header-with-bg
+    background: url(../img/header-bg.jpg) no-repeat 50% 50%
+    height: 760px
+    padding-top: 40px
+    margin-bottom: 160px
+  &-nav-wrapper
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+
+
+  &-logo
+    display: flex
+    align-items: center
+    p
+      font-family: $f-TTR
+      font-size: 14px
+      color: $color-text-m-grey
+      max-width: 230px
+      margin-left: 20px
+      letter-spacing: 0.21px
+      line-height: 21px
+
+  &-nav
+    min-width: 460px
+    &__nav-wrapper
+      display: flex
+      justify-content: space-between
+      li
+        a
+          font-family: $f-TTM
+          font-size: 14px
+          color: $color-text-m-grey
+          text-transform: uppercase
+          &.nav-active
+            color: $color-red
+    & .mobile-active
+      transform: translateX(0px)
+      transition: all .3s
+      li
+        margin-bottom: 20px
+        &:last-child
+          margin-bottom: 0
+        a
+          font-size: 16px
+
+
+  &-phone
+    border-radius: 5px
+    line-height: 20px
+    p
+      font-family: $f-TTM
+      font-size: 21px
+      color: $color-text-d-grey
+      margin-bottom: 20px
+      text-align: end
+      a
+        display: block
+        font-family: $f-TTB
+        font-size: 14px
+        padding: 10px 20px
+        cursor: pointer
+        &::after
+          box-shadow: 0 5px 15px 0 #ff3f5e
+
+@media (max-width: 1000px)
+  .header
+    &-logo
+      p
+        display: none
+    &-phone
+      transform: none
+      background: none
+      p
+
+        font-size: 15px
+        color: $color-text-d-grey
+        transform: none
+        a
+          margin-left: 5px
+
+          font-size: 13px
+          color: $color-l-blue
+          transform: none
+          border-bottom: 1px solid $color-border
+          cursor: pointer
+
+@media (max-width: 768px)
+  .mobile-toggle
+    display: block
+
+  .header
+    position: relative
+    &.header-with-bg
+      padding: 0
+    &-nav
+      min-width: 0
+      position: absolute
+      left: 0
+      right: 0
+      top: 70px
+      &__nav-wrapper
+        border-top: 1px solid $color-border
+        background: #ffffff
+        padding: 20px
+        flex-direction: column
+        transform: translateX(-10000px)
+        transition: all .3s
+
+
+
+
+
+//header inner
+.header-inner
+  h1
+    font-family: $f-TTM
+    font-size: 48px
+    color: $color-text-d-grey
+    margin-top: 100px
+    margin-bottom: 50px
+    max-width: 710px
+    line-height: 50px
+
+
+  a
+    margin-bottom: 100px
+    padding: 31px 65px
+    &::before
+      position: absolute
+      content: url(../img/pen.png)
+      right: -15px
+      top: 0
+
+
+
+
+
+@media (max-width: 425px)
+  .header
+    &.header-no-bg
+      padding: 0
+    &.header-with-bg
+
+      height: 550px
+      padding-top: 0
+      margin-bottom: 20px
+
+  .header-inner
+    h1
+      font-size: 20px
+      line-height: 25px
+    a
+      margin-bottom: 100px
+      padding: 20px 40px
+      margin-left: 0
+    p
+      margin-left: 0
+      font-size: 16px
+      &:before
+        content: none
+
+.mobile-toggle
+  display: none
+  width: 35px
+  position: relative
+  height: 3px
+  background: $color-text-d-grey
+  &::before
+    position: absolute
+    content: ''
+    width: 30px
+    height: 3px
+    background: $color-text-d-grey
+    top: -7px
+    right: 0
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s
+  &::after
+    position: absolute
+    background: $color-text-d-grey
+    content: ''
+    width: 35px
+    height: 3px
+    top: 7px
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s
+
+.mobile-toggle.mobile-toggle-active
+  background-color: transparent
+  &::before
+    width: 35px
+    transform: rotate(45deg)
+    top: 0
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s
+  &::after
+    transform: rotate(-45deg)
+    top: 0
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s
