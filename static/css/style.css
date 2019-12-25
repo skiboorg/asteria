@@ -241,7 +241,7 @@ a {
 }
 
 body {
-  font-family: "TT Norms Regular", sans-serif;
+  font: 16px "TT Norms Regular", sans-serif;
   color: #292929;
 }
 
@@ -308,6 +308,10 @@ input::placeholder {
   font-size: 16px;
 }
 
+input:focus {
+  outline: 0;
+}
+
 .container {
   max-width: 1140px;
   padding: 0 15px;
@@ -325,6 +329,7 @@ input::placeholder {
 }
 
 .btn-outline {
+  position: relative;
   font: 16px "TT Norms Bold", sans-serif;
   color: #7ed3ff;
   text-transform: uppercase;
@@ -333,6 +338,39 @@ input::placeholder {
   border-radius: 40px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.btn-outline::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  background: #7ed3ff;
+  color: #ffffff;
+  border-radius: 40px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.btn-outline:hover {
+  color: #ffffff;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.btn-outline:hover::after {
+  width: 100%;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
 }
 
 .btn {
@@ -446,6 +484,7 @@ input::placeholder {
   -webkit-box-shadow: 0 0 51px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 51px 0 rgba(0, 0, 0, 0.1);
   padding: 5px;
+  max-width: 420px;
 }
 
 .shadow-box-inner {
@@ -453,10 +492,56 @@ input::placeholder {
   box-sizing: border-box;
   border-radius: 10px;
   min-height: 100%;
+  padding: 40px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   border: 1px dashed #cecece;
+}
+
+.shadow-box-inner h5 {
+  font: 24px "TT Norms Bold", sans-serif;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+
+.shadow-box-inner h6 {
+  font: 24px "TT Norms Light", sans-serif;
+  margin-bottom: 15px;
+}
+
+.shadow-box-inner span {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.shadow-box-inner a {
+  display: block;
+  padding: 30px 0;
+  margin-bottom: 30px;
+}
+
+.shadow-box-inner p {
+  font: 12px "MuseoSansCyrl-700", sans-serif;
+  text-align: center;
+}
+
+.shadow-box-inner p a {
+  color: #7ed3ff;
+  text-decoration: underline;
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.contact-info {
+  font: 16px "TT Norms Medium", sans-serif !important;
+  text-align: start !important;
+}
+
+.contact-info span {
+  color: #7ed3ff;
+  display: inline-block !important;
 }
 
 .breadcrumbs {
