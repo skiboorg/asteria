@@ -1,15 +1,60 @@
 .feature
   background: url(../img/index-bg-2.jpg)
   height: 600px
-
-
+  margin-bottom: 100px
+  &-info
+    max-width: 358px
+    font: 14px $f-TTR
+    color: #8e9296
+    text-align: justify
+    line-height: 24px
+    span
+      font-family: $f-TTB
+.df
+  display: flex
+  justify-content: flex-end
 
 .masters
-  background: url(../img/index-bg-3.jpg)
+  background: url(../img/index-bg-3.jpg) no-repeat center
   height: 619px
+  margin-bottom: 100px
+  &-wrapper
+    padding: 140px 0
+    max-width: 480px
+
+.master-info
+  h3
+    font: 40px $f-PRF
+    color: $color-red
+    text-decoration: underline
+    margin-bottom: 15px
+  span
+    font-size: 18px
+    margin-bottom: 30px
+    display: block
+
+  p
+    position: relative
+    font: 16px $f-TTI
+    color: #878b8f
+    line-height: 30px
+    margin-bottom: 55px
+    z-index: 1
+    &::before
+      position: absolute
+      content: '"'
+      font: 377px $f-BerSer
+      color: #e6e7e7
+      top: 0
+      right: 0
+      line-height: 275px
+      z-index: -1
 
 .about-lpg
   position: relative
+  margin-bottom: 40px
+  h3
+    text-align: center
   &-image
     background: url(../img/lpg.jpg) no-repeat center
     height: 974px
@@ -17,7 +62,7 @@
     //display: grid
     //grid-template-columns: repeat(auto-fit,minmax(100px,1fr))
     display: flex
-    flex-wrap: wrap
+
     position: absolute
     max-width: 1140px
     bottom: 75px
