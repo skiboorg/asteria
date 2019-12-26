@@ -1,0 +1,106 @@
+{% extends  'basic.html' %}
+{% load static %}
+{% load mytags %}
+
+{% block title %}
+    {{ pageTitle }}
+{% endblock %}
+
+{% block keywords %}
+    {{ pageKeywords }}
+{% endblock %}
+
+{% block description %}
+    {{ pageDescription }}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+    {% include 'header.html' %}
+
+    <div class="main">
+        <section class="feature" style="background: url({{ currentService.get_header }}) no-repeat center">
+            <div class="container">
+                <h1>{{ currentService.page_h1 }}</h1>
+                <div class="feature-text">
+                    {{ currentService.topText | safe }}
+
+                </div>
+            </div>
+
+        </section>
+        <section class="acc">
+            <div class="container">
+                <h5>Внимание</h5>
+                <button class="accordion">Показания</button>
+                <div class="panel">
+                    {{ currentService.acc1Text |safe }}
+                 </div>
+
+                <button class="accordion b-bottom">Противопоказания</button>
+                <div class="panel">
+                 {{ currentService.acc2Text |safe }}
+                </div>
+            </div>
+        </section>
+
+        <section class="callback">
+            <div class="container">
+                <div class="section-header ">
+                    <h3 class="full-width">Запишитесь на процедуру<br><span class="no-underline">прямо сейчас</span></h3>
+                </div>
+                <div class="shadow-box">
+                    <div class="shadow-box-inner">
+                        <h5>Остались вопросы ?</h5>
+                        <span>Мы перезвоним</span>
+
+                        <input type="text" id="form_name" placeholder="Как к Вам обращаться?">
+                        <input type="tel" id="form_phone"  class="masked-phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__" />
+                        <a   class="btn" onclick="sendForm('form')">Перезвоните мне</a>
+                        <p>Нажимая на кнопку, в принимаете <a href="#">условия передачи данных</a></p>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+    </div><!--//main-->
+
+
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block js %}
+
+    {{ block.super }}
+
+
+
+{% endblock %}

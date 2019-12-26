@@ -16,11 +16,14 @@ class Master(models.Model):
         verbose_name = "Специалист"
         verbose_name_plural = "Специалисты"
 
+
 class ServiceName(models.Model):
     name = models.CharField('Вид работы', max_length=255, blank=False, null=True)
-    image = models.ImageField('Изображение превью (360 x 250)', upload_to='services_img/', blank=False, null=True)
-    imageHeader = models.ImageField('Изображение для бекграунда страницы с услугой (1920х560)')
+    image = models.ImageField('Изображение превью (330 x 220)', upload_to='services_img/', blank=False, null=True)
+    imageHeader = models.ImageField('Изображение для бекграунда страницы с услугой (1920х560)', blank=True, null=True)
+    shortDescr = models.CharField('Короткое описание услуги (80 символов)',max_length=80, blank=True, null=True, db_index=True)
     topText = RichTextUploadingField('Текст на страницу с услугой', blank=True, null=True)
+    price = models.IntegerField('Стоимость услуги', default=0)
     acc1Text = RichTextUploadingField('Показания', blank=True, null=True)
     acc2Text = RichTextUploadingField('Противопоказания', blank=True, null=True)
     name_slug = models.CharField(max_length=255, blank=True, null=True, unique=True, db_index=True)
@@ -28,6 +31,7 @@ class ServiceName(models.Model):
     page_title = models.CharField('Название страницы SEO', max_length=255, blank=False, null=True)
     page_description = models.CharField('Описание страницы SEO', max_length=255, blank=True, null=True)
     page_keywords = models.TextField('Keywords SEO', blank=True, null=True)
+    isVisible = models.BooleanField('Отображать в нескрываемом блоке', default=False)
 
     def save(self, *args, **kwargs):
         slug = slugify(self.name)
@@ -47,7 +51,7 @@ class ServiceName(models.Model):
         if self.imageHeader:
             return self.imageHeader.url
         else:
-            return '/static/img/about-us-bg.jpg'
+            return '/static/img/header-bg.jpg'
 
     def __str__(self):
         return 'Вид работы : {}'.format(self.name)

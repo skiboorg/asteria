@@ -1,0 +1,39 @@
+{% load static %}
+<header class="header header-with-bg">
+    <div class="container header-nav-wrapper">
+        <div class="header-logo">
+
+            <a href="/">  <img src="{% static 'img/logo.png' %}" alt=""></a>
+            <p>Студия красоты<br> и здоровья в Челябинске</p>
+
+
+
+        </div>
+        <nav class="header-nav">
+            <ul class="header-nav__nav-wrapper">
+                <li><a href="#services">Услуги и цены</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#contacts">Адрес</a></li>
+                <li><a href="#masters">Мастера</a></li>
+
+            </ul>
+        </nav>
+
+        <div class="header-phone">
+            <p>8 800 999 99 99</p>
+            <a href="javascript:void(0)" class="btn" onclick="toggleModal('callback-modal')">Перезвоните мне</a>
+        </div>
+        <div class="mobile-toggle">
+
+        </div>
+    </div><!-- // header-nav-wrapper -->
+    <div class="container  header-inner">
+
+        <h1>Позвольте нам подчеркнуть вашу  красоту</h1>
+
+
+        <a href="#callback_form" class="btn decorated">записаться на прием</a>
+
+
+    </div><!-- // header-inner -->
+</header>

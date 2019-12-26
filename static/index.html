@@ -31,7 +31,7 @@
 
         <div class="header-phone">
             <p>8 800 999 99 99</p>
-            <p><a href="" class="btn">Перезвоните мне</a></p>
+            <a href="javascript:void(0)" class="btn" onclick="toggleModal('callback-modal')">Перезвоните мне</a>
         </div>
         <div class="mobile-toggle">
 
@@ -55,7 +55,7 @@
             </div>
             <p class="f-18"><span class="color-blue">У нас такого не бывает!</span> В противном случае, вернём деньги</p>
             <div id="container">
-                    <button id="playme" onclick="revealVideo('video','youtube')"></button>
+                <button id="playme" onclick="revealVideo('video','youtube')"></button>
             </div>
             <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
                 <div class="lightbox-container">
@@ -76,13 +76,13 @@
     <section class="masters">
         <div class="container df">
             <div class="masters-wrapper">
-                 <div class="master-info">
-                     <h3>Ольга Пушкова</h3>
-                     <span>Мастер массажа</span>
+                <div class="master-info">
+                    <h3>Ольга Пушкова</h3>
+                    <span>Мастер массажа</span>
 
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque dolor explicabo iste reiciendis repudiandae. Culpa cupiditate ea, excepturi incidunt numquam officiis provident quam quisquam saepe sint, sunt ut? Sit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque dolor explicabo iste reiciendis repudiandae. Culpa cupiditate ea, excepturi incidunt numquam officiis provident quam quisquam saepe sint, sunt ut? Sit.</p>
 
-                     <a href="#callback_form" class="btn decorated">записаться на прием</a>
+                    <a href="#callback_form" class="btn decorated">записаться на прием</a>
                 </div>
             </div>
 
@@ -175,7 +175,7 @@
     <section class="callback">
         <div class="container">
             <div class="section-header ">
-                <h3 class="full-width">Все аппараты сертифицированы<br><span class="no-underline">и безопасны для здоровья</span</h3>
+                <h3 class="full-width">Все аппараты сертифицированы<br><span class="no-underline">и безопасны для здоровья</span></h3>
             </div>
             <div class="shadow-box">
                 <div class="shadow-box-inner">
@@ -255,7 +255,7 @@
 
             <div class="footer-top-phones text-right">
                 <p>+7 (351) 230 80 40</p>
-                <a href="#" class="btn ">Перезвоните мне</a>
+                <a onclick="toggleModal('callback-modal')" class="btn ">Перезвоните мне</a>
             </div>
 
 
@@ -267,11 +267,41 @@
     </div>
 </footer>
 
+<section class="acc">
+    <div class="container">
+        <h5>Внимание</h5>
+        <button class="accordion">Показания</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
 
+        <button class="accordion b-bottom">Противопоказания</button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+</section>
 
 
 
 </body>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 <script>
     // Function to reveal lightbox and adding YouTube autoplay
     function revealVideo(div,video_id) {

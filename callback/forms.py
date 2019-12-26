@@ -10,4 +10,6 @@ class CallbackOrderForm(ModelForm):
         fields = (
             'userName',
             'userPhone',
+            'service',
+            'master'
         )

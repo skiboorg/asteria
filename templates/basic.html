@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- SKIBORG WAS HERE -->
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate"/>
+    <title>{% block title %}  KOSMOS {% endblock %} </title>
+    <meta name="keywords" content="{% block keywords %} keywords {% endblock %}">
+    <meta name="description" content="{% block description %} description {% endblock %}"/>
+    {{ seotag.yandexTAG |safe }}
+    {{ seotag.googleTAG |safe }}
+
+
+
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
+
+
+{% block js %}
+    <script src="{% static 'js/phone-mask.min.js' %}"></script>
+    <script>
+        let mobile_button = document.getElementsByClassName('mobile-toggle')[0]
+        let mobile_menu = document.getElementsByClassName('header-nav__nav-wrapper')[0]
+        let service = ''
+        let master = ''
+
+
+        mobile_button.onclick = function () {
+            this.classList.toggle('mobile-toggle-active')
+
+            mobile_menu.classList.toggle('mobile-active')
+        }
+
+
+        csrfmiddlewaretoken = document.getElementsByName('csrfmiddlewaretoken')[0].defaultValue
+
+        function toggleModal(type,s,m) {
+            service = s
+            master = m
+            console.log(master)
+            document.getElementsByClassName(type)[0].classList.toggle('modal-active')
+            return false
+
+        }
+
+
+        function sendForm(type) {
+            document.getElementById(`${type}_name`).classList.remove('error-field')
+            document.getElementById(`${type}_phone`).classList.remove('error-field')
+            console.log('send')
+            let fd = new FormData();
+            fd.append('csrfmiddlewaretoken', csrfmiddlewaretoken)
+
+            fd.append('userName', document.getElementById(`${type}_name`).value)
+            fd.append('userPhone', document.getElementById(`${type}_phone`).value)
+            if (service){
+                 fd.append('service', service)
+            }
+            if (master){
+                 fd.append('master', master)
+            }
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/callback/callback/', true);
+            xhr.onload = function () {
+                let result = JSON.parse(this.response)['result']
+                console.log(result)
+                if ( result === 'ok') {
+                    document.getElementById(`${type}_content`).innerHTML='<h5>Спасибо за обращение, Вам перезвонят</h5>'
+
+                }
+                else {
+                    if (result === 'name'){
+                        document.getElementById(`${type}_name`).classList.add('error-field')
+                    }
+
+                    if (result === 'phone'){
+                        document.getElementById(`${type}_phone`).classList.add('error-field')
+                    }
+                }}
+            xhr.send(fd);
+        }
+    </script>
+{% endblock %}
+{{ seotag.yandexMetrika |safe }}
+{{ seotag.fbPixel |safe }}
+</body>
+</html>

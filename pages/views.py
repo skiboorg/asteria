@@ -6,13 +6,14 @@ def index(request):
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.indexTitle
-        allServices = ServiceName.objects.all()
         pageDescription = seotag.indexDescription
         pageKeywords = seotag.indexKeywords
     except:
         pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
         pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+    allVisibleServices = ServiceName.objects.filter(isVisible=True)
+    allNotVisibleServices = ServiceName.objects.filter(isVisible=False)
     return render(request, 'pages/index.html', locals())
 
 

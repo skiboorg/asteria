@@ -935,11 +935,18 @@ input:focus {
 }
 
 .header-phone p {
+  position: relative;
   font-family: "TT Norms Medium", sans-serif;
   font-size: 21px;
   color: #292929;
   margin-bottom: 20px;
   text-align: end;
+}
+
+.header-phone p::before {
+  position: absolute;
+  content: url(../img/phone-icon.png);
+  left: 0;
 }
 
 .header-phone p a {
@@ -1142,6 +1149,13 @@ input:focus {
   font-family: "TT Norms Bold", sans-serif;
 }
 
+.feature h1 {
+  font: 48px "PFRegalDisplayPro-MediumItalic", sans-serif;
+  color: #ff6581;
+  margin-bottom: 50px;
+  max-width: 540px;
+}
+
 .df {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1216,6 +1230,7 @@ input:focus {
   position: absolute;
   max-width: 1140px;
   bottom: 75px;
+  padding-right: 15px;
 }
 
 .about-lpg-info-item {
@@ -1246,6 +1261,65 @@ input:focus {
 
 .about-lpg-info-item:nth-child(5) {
   z-index: 5;
+}
+
+.acc h5 {
+  font: 18px "TT Norms Medium", sans-serif;
+  margin-bottom: 25px;
+}
+
+.accordion {
+  position: relative;
+  background-color: #ffffff;
+  font: 16px "TT Norms Regular", sans-serif;
+  color: #292929;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #7ed3ff;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.accordion::before {
+  position: absolute;
+  content: '>';
+  color: #ff6581;
+  left: 0;
+  top: 10px;
+  font-size: 24px;
+}
+
+.accordion.active {
+  border-bottom: 1px solid #7ed3ff;
+}
+
+.accordion.active::before {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top: 12px;
+}
+
+.b-bottom {
+  border-bottom: 1px solid #7ed3ff;
+}
+
+.active,
+.accordion:hover {
+  background-color: #ffffff;
+}
+
+.panel {
+  padding: 30px 0;
+  display: none;
+  background-color: white;
+  overflow: hidden;
 }
 
 .map {
@@ -1486,6 +1560,22 @@ input:focus {
     transition: all .3s;
   }
 
+  .about-lpg-image {
+    background-size: contain;
+    background-position-y: 5%;
+  }
+
+  .about-lpg-info {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .about-lpg-info-item {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
   .map-inner {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -1501,6 +1591,7 @@ input:focus {
 
   .section-header h3 {
     font-size: 20px;
+    line-height: 30px;
   }
 
   .section-header p {
@@ -1523,6 +1614,11 @@ input:focus {
     height: 550px;
     padding-top: 0;
     margin-bottom: 20px;
+    background-position-x: 0%;
+  }
+
+  .header-phone {
+    display: none;
   }
 
   .header-inner h1 {
@@ -1543,6 +1639,16 @@ input:focus {
 
   .header-inner p:before {
     content: none;
+  }
+
+  .about-lpg-info {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .about-lpg-info-item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
   }
 
   .footer-top {

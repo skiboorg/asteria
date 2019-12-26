@@ -56,11 +56,17 @@
     border-radius: 5px
     line-height: 20px
     p
+      position: relative
       font-family: $f-TTM
       font-size: 21px
       color: $color-text-d-grey
       margin-bottom: 20px
       text-align: end
+      &::before
+        position: absolute
+        content: url(../img/phone-icon.png)
+        left: 0
+
       a
         display: block
         font-family: $f-TTB
@@ -129,7 +135,6 @@
     max-width: 710px
     line-height: 50px
 
-
 .decorated
   margin-bottom: 100px
   padding: 31px 65px
@@ -139,19 +144,17 @@
     right: -15px
     top: 0
 
-
-
-
-
 @media (max-width: 425px)
   .header
     &.header-no-bg
       padding: 0
     &.header-with-bg
-
       height: 550px
       padding-top: 0
       margin-bottom: 20px
+      background-position-x: 0%
+    &-phone
+      display: none
 
   .header-inner
     h1

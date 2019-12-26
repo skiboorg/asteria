@@ -4,4 +4,3 @@ from .models import *
 
 
 admin.site.register(CallbackOrder)
-admin.site.register(Quiz)

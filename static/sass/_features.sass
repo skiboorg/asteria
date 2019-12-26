@@ -10,6 +10,11 @@
     line-height: 24px
     span
       font-family: $f-TTB
+  h1
+    font: 48px $f-PRF
+    color: $color-red
+    margin-bottom: 50px
+    max-width: 540px
 .df
   display: flex
   justify-content: flex-end
@@ -62,10 +67,10 @@
     //display: grid
     //grid-template-columns: repeat(auto-fit,minmax(100px,1fr))
     display: flex
-
     position: absolute
     max-width: 1140px
     bottom: 75px
+    padding-right: 15px
     &-item
       flex-basis: 20%
       border-radius: 5px
@@ -83,3 +88,65 @@
       &:nth-child(5)
         z-index: 5
 
+@media (max-width: 768px)
+  .about-lpg
+    &-image
+      background-size: contain
+      background-position-y: 5%
+    &-info
+      flex-wrap: wrap
+      &-item
+        flex-grow: 1
+
+@media (max-width: 425px)
+  .about-lpg
+    &-image
+    &-info
+      flex-wrap: wrap
+      &-item
+        flex-basis: 100%
+
+.acc
+  h5
+    font: 18px $f-TTM
+    margin-bottom: 25px
+
+.accordion
+  position: relative
+  background-color: #ffffff
+  font: 16px $f-TTR
+  color: $color-text-m-grey
+  cursor: pointer
+  padding: 18px
+  width: 100%
+  border: none
+  border-top: 1px solid $color-l-blue
+  text-align: left
+  outline: none
+  font-size: 15px
+  transition: 0.4s
+  &::before
+    position: absolute
+    content: '>'
+    color: $color-red
+    left: 0
+    top: 10px
+    font-size: 24px
+  &.active
+    border-bottom: 1px solid $color-l-blue
+    &::before
+      transform: rotate(90deg)
+      top: 12px
+
+
+.b-bottom
+  border-bottom: 1px solid $color-l-blue
+.active, .accordion:hover 
+  background-color: #ffffff
+
+
+.panel 
+  padding: 30px 0
+  display: none
+  background-color: white
+  overflow: hidden

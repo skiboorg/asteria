@@ -1,0 +1,188 @@
+{% extends  'basic.html' %}
+{% load static %}
+
+{% block title %}
+    {{ pageTitle }}
+{% endblock %}
+
+{% block keywords %}
+    {{ pageKeywords }}
+{% endblock %}
+
+{% block description %}
+    {{ pageDescription }}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+    {% include 'header_index.html' %}
+
+<div class="main">
+    <section class="feature">
+        <div class="container">
+            <div class="section-header">
+                <h3>После посещения салона <span>остаются светлые волоски,</span> а процедура болезненная?</h3>
+            </div>
+            <p class="f-18"><span class="color-blue">У нас такого не бывает!</span> В противном случае, вернём деньги</p>
+            <div id="container">
+                    <button id="playme" onclick="revealVideo('video','youtube')"></button>
+            </div>
+            <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
+                <div class="lightbox-container">
+                    <div class="lightbox-content">
+                        <button onclick="hideVideo('video','youtube')" class="lightbox-close">
+                            Закрыть | ✕
+                        </button>
+                        <div class="video-container">
+                            <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/WsptdUFthWI?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="feature-info"><span>Система Magic One</span> удаляет даже очень светлые волоски и прекрасно справляется с темными и густыми волосами</p>
+        </div>
+
+    </section>
+    <section  id="masters" class="masters">
+        <div class="container df">
+            <div class="masters-wrapper">
+                 <div class="master-info">
+                     <h3>Ольга Пушкова</h3>
+                     <span>Мастер массажа</span>
+
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque dolor explicabo iste reiciendis repudiandae. Culpa cupiditate ea, excepturi incidunt numquam officiis provident quam quisquam saepe sint, sunt ut? Sit.</p>
+
+                     <a href="#callback_form" class="btn decorated">записаться на прием</a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <section class="about-lpg">
+        <div class="container">
+            <h3>LPG массаж на оригинальном<br><span class="color-pink">французском аппарате</span> LPG cellu</h3>
+            <div class="about-lpg-image">
+
+            </div>
+            <div class="about-lpg-info">
+                <div class="about-lpg-info-item">
+                    <p>Процедура безболезненна</p>
+                </div>
+                <div class="about-lpg-info-item">
+                    <p>Эффект держится ? недель</p>
+                </div>
+                <div class="about-lpg-info-item">
+                    <p>Преимущество номер один</p>
+                </div>
+                <div class="about-lpg-info-item">
+                    <p>Преимущество номер один</p>
+                </div>
+                <div class="about-lpg-info-item">
+                    <p>Преимущество номер один</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="services" class="services">
+
+        <div class="section-header text-center ">
+            <h3 class="full-width">Выберите нужную услугу<br><span class="no-underline">или подберите её с консультантом</span>
+            </h3>
+        </div>
+        <div class="container services-wrapper">
+            {% for service in allVisibleServices %}
+            <div class="services-item">
+                <img src="{{ service.image.url }}">
+                <h4>{{ service.name }}</h4>
+                <p class="services-item-description" >{{ service.shortDescr }}</p>
+                <p class="services-item-price" >{{ service.price }} руб <span>цена за сеанс</span></p>
+                <div class="text-center">
+                    <a href="javascript: void(0)" onclick="toggleModal('callback-modal','{{ service.name }}','77')" class="btn">Записаться на приём</a>
+                    <a href="{% url 'service' service.name_slug %}" class="services-item-more">узнать подробнее</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% for service in allNotVisibleServices %}
+            <div class="services-item">
+                <img src="{{ service.image.url }}">
+                <h4>{{ service.name }}</h4>
+                <p class="services-item-description" >{{ service.shortDescr }}</p>
+                <p class="services-item-price" >{{ service.price }} руб <span>цена за сеанс</span></p>
+                <div class="text-center">
+                    <a href="javascript: void(0)" onclick="toggleModal('callback-modal','{{ service.name }}','')" class="btn">Записаться на приём</a>
+                    <a href="{% url 'service' service.name_slug %}" class="services-item-more">узнать подробнее</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn-outline">смотреть все услуги</a>
+        </div>
+    </section>
+
+    <section class="callback">
+        <div class="container">
+            <div class="section-header ">
+                <h3 class="full-width">Все аппараты сертифицированы<br><span class="no-underline">и безопасны для здоровья</span></h3>
+            </div>
+            <div class="shadow-box">
+                <div class="shadow-box-inner">
+                    <h5>Остались вопросы ?</h5>
+                    <span>Мы перезвоним</span>
+
+                   <input type="text" id="form_name" placeholder="Как к Вам обращаться?">
+                        <input type="tel" id="form_phone"  class="masked-phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__" />
+                        <a   class="btn" onclick="sendForm('form')">Перезвоните мне</a>
+                    <p>Нажимая на кнопку, в принимаете <a href="#">условия передачи данных</a></p>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+</div><!--//main-->
+
+
+
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script>
+
+        // Function to reveal lightbox and adding YouTube autoplay
+        function revealVideo(div,video_id) {
+            var video = document.getElementById(video_id).src;
+            document.getElementById(video_id).src = video+'&autoplay=1'; // adding autoplay to the URL
+            document.getElementById(div).style.display = 'block';
+        }
+
+        // Hiding the lightbox and removing YouTube autoplay
+        function hideVideo(div,video_id) {
+            var video = document.getElementById(video_id).src;
+            var cleaned = video.replace('&autoplay=1',''); // removing autoplay form url
+            document.getElementById(video_id).src = cleaned;
+            document.getElementById(div).style.display = 'none';
+        }
+
+
+
+    </script>
+{% endblock %}
