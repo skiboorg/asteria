@@ -47,19 +47,32 @@
     z-index: 1
     &::before
       position: absolute
-      content: '"'
-      font: 377px $f-BerSer
-      color: #e6e7e7
+      content: url(../img/quotes.png)
       top: 0
       right: 0
-      line-height: 275px
+
       z-index: -1
+@media (max-width: 425px)
+  .masters
+    background: url(../img/index-bg-3.jpg) no-repeat 60%
+
+    height: 480px
+    &-wrapper
+      padding: 30px 0
+      max-width: 320px
+  .master-info
+    a
+      margin: 0 auto
+      display: block
+      max-width: 320px
+      padding: 20px 40px
 
 .about-lpg
   position: relative
   margin-bottom: 40px
   h3
     text-align: center
+    margin-bottom: 40px
   &-image
     background: url(../img/lpg.jpg) no-repeat center
     height: 974px
@@ -100,11 +113,17 @@
 
 @media (max-width: 425px)
   .about-lpg
+    h3
+      font-size: 27px
+      line-height: 25px
     &-image
+      height: 680px !important
     &-info
-      flex-wrap: wrap
+      flex-wrap: wrap !important
+      bottom: 0px !important
       &-item
         flex-basis: 100%
+        padding: 20px !important
 
 .acc
   h5

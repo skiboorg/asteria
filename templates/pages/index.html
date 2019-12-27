@@ -127,7 +127,7 @@
 
         </div>
         <div class="text-center">
-            <a href="#" class="btn-outline">смотреть все услуги</a>
+            <a href="javascript: void(0)" onclick="toggleServices()" class="btn-outline">смотреть все услуги</a>
         </div>
     </section>
 
@@ -145,13 +145,9 @@
                         <input type="tel" id="form_phone"  class="masked-phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__" />
                         <a   class="btn" onclick="sendForm('form')">Перезвоните мне</a>
                     <p>Нажимая на кнопку, в принимаете <a href="#">условия передачи данных</a></p>
-
-
-
                 </div>
-
             </div>
-
+            <img class="hidden-mobile" src="{% static 'img/paper.png' %}" alt="">
         </div>
     </section>
 

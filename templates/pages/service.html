@@ -27,7 +27,7 @@
         <section class="feature" style="background: url({{ currentService.get_header }}) no-repeat center">
             <div class="container">
                 <h1>{{ currentService.page_h1 }}</h1>
-                <div class="feature-text">
+                <div style="max-width: 640px;" class="feature-text">
                     {{ currentService.topText | safe }}
 
                 </div>
@@ -58,18 +58,13 @@
                     <div class="shadow-box-inner">
                         <h5>Остались вопросы ?</h5>
                         <span>Мы перезвоним</span>
-
                         <input type="text" id="form_name" placeholder="Как к Вам обращаться?">
                         <input type="tel" id="form_phone"  class="masked-phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__" />
                         <a   class="btn" onclick="sendForm('form')">Перезвоните мне</a>
                         <p>Нажимая на кнопку, в принимаете <a href="#">условия передачи данных</a></p>
-
-
-
                     </div>
-
                 </div>
-
+                   <img class="hidden-mobile" src="{% static 'img/paper.png' %}" alt="">
             </div>
         </section>
 

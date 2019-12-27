@@ -13,6 +13,36 @@
     display: flex
     align-items: center
     justify-content: space-between
+  &-features
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 100px
+
+    li
+      position: relative
+      flex-basis: 200px
+      padding-left: 38px
+      &::before
+        position: absolute
+        content: ''
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        left: 0
+        top: 0
+        background: #ffffff
+        box-shadow: 0px 6px 13px 0px rgba(126, 211, 255, 0.78)
+      &::after
+        position: absolute
+        content: ''
+        width: 6px
+        height: 6px
+        border-radius: 50%
+        left: 5px
+        top: 5px
+        background: $color-l-blue
+
+
 
 
 
@@ -39,7 +69,9 @@
           font-size: 14px
           color: $color-text-m-grey
           text-transform: uppercase
-          &.nav-active
+          transition: color .2s linear
+          &:hover
+            transition: color .2s linear
             color: $color-red
     & .mobile-active
       transform: translateX(0px)
@@ -67,14 +99,14 @@
         content: url(../img/phone-icon.png)
         left: 0
 
-      a
-        display: block
-        font-family: $f-TTB
-        font-size: 14px
-        padding: 10px 20px
-        cursor: pointer
-        &::after
-          box-shadow: 0 5px 15px 0 #ff3f5e
+    a
+      display: block
+      font-family: $f-TTB
+      font-size: 14px
+      padding: 10px 20px
+      cursor: pointer
+      &::after
+        box-shadow: 0 5px 15px 0 #ff3f5e
 
 @media (max-width: 1000px)
   .header
@@ -119,6 +151,17 @@
         flex-direction: column
         transform: translateX(-10000px)
         transition: all .3s
+    &-features
+      display: flex
+      flex-wrap: wrap
+      margin-bottom: 40px
+      justify-content: center
+      li
+        margin-bottom: 20px
+        &:last-child
+          margin-bottom: 0
+
+
 
 
 
@@ -151,7 +194,7 @@
     &.header-with-bg
       height: 550px
       padding-top: 0
-      margin-bottom: 20px
+      margin-bottom: 40px
       background-position-x: 0%
     &-phone
       display: none
@@ -161,9 +204,11 @@
       font-size: 20px
       line-height: 25px
     a
-      margin-bottom: 100px
+      margin: 0 auto
+      display: block
+      max-width: 320px
       padding: 20px 40px
-      margin-left: 0
+
     p
       margin-left: 0
       font-size: 16px

@@ -158,7 +158,8 @@ input
     box-shadow: none
     transition: all .2s linear
 
-
+.mb-90
+  margin-bottom: 90px !important
 
 .f-18
   font-size: 18px
@@ -171,7 +172,9 @@ input
 
 .full-width
   max-width: 100% !important
-
+@media (max-width: 425px)
+  .mb-90
+    margin-bottom: 40px !important
 .section-header
   margin-bottom: 35px
 
@@ -190,8 +193,8 @@ input
 @media (max-width: 425px)
   .section-header
     h3
-      font-size: 20px
-      line-height: 30px
+      font-size: 27px
+      line-height: 25px
     p
       font-size: 16px
 
@@ -466,4 +469,14 @@ input
   &:hover
     opacity: 1
     transition: opacity .2s linear
+
+
+.callback
+  position: relative
+  z-index: 1
+  img
+    position: absolute
+    top: 0
+    right: 100px
+    z-index: -1
 

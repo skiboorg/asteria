@@ -10,7 +10,6 @@ from .forms import *
 
 def createCallbackForm(request):
     return_dict = {}
-    print(request.POST)
     if request.POST:
         req = request.POST
         if '_' in req.get('userPhone'):
